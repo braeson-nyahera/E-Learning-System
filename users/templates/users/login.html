@@ -19,22 +19,23 @@
             <!--Sign in section-->
             <!-- Email input -->
             <div class=" bg-orange-400 mb-6">
-              <label
+              <!-- <label
               for="exampleFormControlInput2"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
               >Email address
             </label>
-              <span>Email address</span><span>{{ form.email }}</span>
+              <span>Email address</span><span>{{ form.email }}</span> -->
             </div>
             <!-- Password input -->
             <div class=" bg-orange-400 mb-6" data-twe-input-wrapper-init>
-              <input>
-              <label
+            
+              {{ form.as_p }}
+              <!--  <label
               for="exampleFormControlInput22"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
               >Password
-              </label>
-              <span>Password</span><span>{{ form.password }} </span>
+              </label> 
+              <span>Password</span><span>{{ form.password }} </span> -->
             </div>
    
             <div class="mb-6 flex items-center justify-between">
