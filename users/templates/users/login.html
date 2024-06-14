@@ -15,7 +15,8 @@
   
         <!-- Right column container -->
         <div class="bg-[#64748b] bg-green flex-1 md:mb-0 md:w-8/12 lg:w-1/3 xl:w-30px h-1/2">
-          <form>
+          <form method="POST">
+            {% csrf_token %}
             <!--Sign in section-->
             <!-- Email input -->
             <div class=" bg-orange-400 mb-6">
@@ -60,7 +61,7 @@
             <!-- Login button -->
             <div class="text-center lg:text-left">
               <button
-                type="button"
+                type="submit"
                 class="inline-block w-full rounded bg-orange-400 px-7 pb-2 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
                 data-twe-ripple-init
                 data-twe-ripple-color="light">
