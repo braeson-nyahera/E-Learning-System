@@ -1,0 +1,8 @@
+{% extends "home/base.html" %}
+{% block content %}
+    {% for subject in subjects %}
+        <section class="font-bold bg-orange-300 p-4 m-2 rounded h-1/6">
+           <a href="{% url 'course_detail' subject.id %}"> {{ subject.title }}</a>
+        </section>
+    {% endfor %}
+{% endblock content %}

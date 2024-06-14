@@ -1,0 +1,11 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <section class="font-bold bg-orange-300 p-4 m-2 rounded h-1/6">
+        <p>Subject :{{ subject.title }}</p>
+        <p>Tutor : {{subject.owner}}</p>
+    
+    {% for course in courses %}
+        
+    {% endfor %}
+    </section>
+{% endblock content %}
