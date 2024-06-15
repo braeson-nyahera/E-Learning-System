@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'users.apps.UsersConfig',
     'home.apps.HomeConfig',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +132,5 @@ MEDIA_ROOT= BASE_DIR/'media'
 
 LOGIN_REDIRECT_URL='home'
 LOGIN_URL='login'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'

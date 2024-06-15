@@ -1,9 +1,10 @@
+{% load crispy_forms_tags %}
 <div class="content-section">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="">
             <legend class="">Join today</legend>
-            {{ form.as_p }}
+            {{ form|crispy }}
         </fieldset>
         <div class="">
             <button class="" type="submit">Sign up</button>

@@ -3,3 +3,18 @@
  background-repeat: no-repeat;
  background-size:cover;
 }
+.student_card{
+ background-image: url(../assets/student.jpg);
+ background-repeat: no-repeat;
+ background-size:cover;
+}
+.teacher_card{
+ background-image: url(../assets/teacher.jpg);
+ background-repeat: no-repeat;
+ background-size:cover;
+}
+.parent_card{
+ background-image: url(../assets/parent.jpg);
+ background-repeat: no-repeat;
+ background-size:cover;
+}
