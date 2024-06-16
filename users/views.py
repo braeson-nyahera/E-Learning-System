@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register(request):
@@ -19,6 +20,7 @@ def register(request):
     }
     return render(request, 'users/register.html',context)
 
+@login_required
 def profile(request):
     if request.method=='POST':
         u_form=UserUpdateForm(request.POST,instance=request.user)
@@ -44,4 +46,7 @@ def profile(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('logout-done')
+
+def logout_done(request):
+    return render(request, 'users/logout.html')

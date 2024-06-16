@@ -15,32 +15,15 @@
         </div>
   
         <!-- Right column container -->
-        <div class="bg-[#64748b] bg-green flex-1 md:mb-0 md:w-8/12 lg:w-1/3 xl:w-30px h-1/2">
+        <div class="rounded bg-[#64748b] bg-green flex-1 md:mb-0 md:w-8/12 lg:w-1/3 xl:w-1/6 h-1/2">
           <form method="POST">
             {% csrf_token %}
             <!--Sign in section-->
-            <!-- Email input -->
-            <div class=" bg-orange-400 mb-6">
-              <!-- <label
-              for="exampleFormControlInput2"
-              class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
-              >Email address
-            </label>
-              <span>Email address</span><span>{{ form.email }}</span> -->
-            </div>
-            <!-- Password input -->
             <div class=" bg-orange-400 mb-6 p-3" data-twe-input-wrapper-init>
-            
               {{ form|crispy }}
-              <!--  <label
-              for="exampleFormControlInput22"
-              class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
-              >Password
-              </label> 
-              <span>Password</span><span>{{ form.password }} </span> -->
             </div>
    
-            <div class="mb-6 flex items-center justify-between">
+            <div class="p-2 flex items-center justify-between">
               <!-- Remember me checkbox -->
               <div class="mb-[0.125rem] block min-h-[1.5rem] ps-[1.5rem]">
                 <input
@@ -70,14 +53,14 @@
               </button>
   
               <!-- Register link -->
-              <p class="mb-0 mt-2 pt-1 text-sm font-semibold">
-                Don't have an account?
-                <a
-                  href="#!"
-                  class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
-                  >Register</a
-                >
-              </p>
+              <div class="grid justify-items-center b-0 mt-2 pt-1 text-sm font-semibold">
+                  <p>Don't have an account?
+                  <a
+                    href="{% url 'register' %}"
+                    class="text-blue-400 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                    >Register</a>
+                  </p>
+              </div>
             </div>
           </form>
         </div>

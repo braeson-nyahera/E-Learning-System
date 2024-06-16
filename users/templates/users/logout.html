@@ -1,16 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log out</title>
-</head>
-<body>
+{% extends 'home/user_base.html' %}
+{% block content %}
     <h1>Logged out</h1>
     <div>
         <p>You have successfully been logged out</p>
         <a href="{% url 'login' %}">Log in again!</a>
     </div>
-</body>
-</html>
+{% endblock %}
