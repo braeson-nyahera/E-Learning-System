@@ -3,19 +3,18 @@
     {% for subject in subjects %}
         <section class="font-bold bg-orange-300 p-4 m-2 rounded h-fit">
             <p>Subject : {{ subject.title }}</p>
-            {% for course in courses %}
-                {% if course.subject_id == subject.id %}
+            {% for course in subject.courses.all %}
                     <p>Tutor: {{ course.owner }}</p>
                     <hr>
                     <p>Title : {{ course.title }}</p>
                     <p>Overview:
                         
                         {{ course.overview}}</p>
-                        {% for module in modules %}
-                            <p>{{module.title}}</p>
-                            <p>{{ module.description }}</p>
+                        <ul type="disc">
+                        {% for module in course.modules.all %}
+                            <li><a href="{% url 'module_detail' module.id %}"><p>{{module.title}}</p></a></li>
                         {% endfor %}
-                    {% endif %}
+                        </ul>
                 {% endfor %}
         </section>
     {% endfor %}
