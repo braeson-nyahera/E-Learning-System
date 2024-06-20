@@ -1,22 +1,20 @@
 {% extends "home/base.html" %}
+{% load static %}
 {% block content %}
-    {% for subject in subjects %}
-        <section class="font-bold bg-orange-300 p-4 m-2 rounded h-fit">
-            <p>Subject : {{ subject.title }}</p>
-            {% for course in subject.courses.all %}
-                    <p>Tutor: {{ course.owner }}</p>
-                    <hr>
-                    <p>Title : {{ course.title }}</p>
-                    <p>Overview:
-                        
-                        {{ course.overview}}</p>
-                        <ul type="disc">
-                        {% for module in course.modules.all %}
-                            <li><a href="{% url 'module_detail' module.id %}"><p>{{module.title}}</p></a></li>
-                        {% endfor %}
-                        </ul>
+    <section class="bg-orange-300 p-4 m-2 rounded h-fit">
+        <p class="font-black">Title : {{ course.title }}</p>
+        <p>Tutor: {{ course.owner }}</p>
+        <hr> 
+        <p>Overview:
+            
+            {{ course.overview}}</p>
+            <fieldset>
+                <legend class="font-bold text-blue-500">Topics</legend>
+                <ul class="list-disc px-6">
+                {% for module in course.modules.all %}
+                    <li class="font-medium rounded my-1 px-2 bg-orange-200 hover:bg-blue-200"><a href="{% url 'module_detail' module.id %}"><p>{{module.title}}</p></a></li>
                 {% endfor %}
-        </section>
-    {% endfor %}
+                </ul>
+    </fieldset>
     </section>
 {% endblock content %}

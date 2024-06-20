@@ -143,10 +143,16 @@ data-twe-navbar-ref>
 </div>
 </nav>
 <section class="flex">
-    <div class=" flex-1 bg-orange-500 h-100px w-2/4 m-1 rounded-2xl p-4">
+  <div class="grid place-content-evenly flex-1 bg-orange-500 h-100px w-2/4 m-1 rounded-2xl p-4">
     <p class="text-white text-4xl font-bold">Transform Your Future with Our Cutting-Edge E-Learning Platform!</p>
-    <p class="flex bottom-5">Join Thousands of Learners on Their Journey to Success - Anytime, Anywhere!</p>
-    <button class="bg-blue-gray-500">Get Started</button>
+    <p class="flex bottom-5 text-2xl font-semibold">Join Thousands of Learners on Their Journey to Success - Anytime, Anywhere!</p>
+    <a href="{% url 'register' %}">
+    <button class="bg-blue-500 w-fit p-2 rounded">Get Started
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+      </svg>
+    </button>
+    </a>
   </div>
     <div class=" flex-1 bg-orange-400 h-100px w-2/4 m-1 rounded-2xl">
         <img class="rounded-2xl" src="{% static 'home/assets/matt-ragland-02z1I7gv4ao-unsplash.jpg' %}">

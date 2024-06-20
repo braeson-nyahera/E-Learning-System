@@ -3,27 +3,15 @@ from .models import Subject, Course, Content,Module
 from django.views.generic import ListView,DetailView,TemplateView
 
 # Create your views here.
-class SubjectListView(TemplateView):
+class CourseListView(ListView):
+    model=Course
     template_name='courses/courses.html'
+    context_object_name='courses'
+    ordering=['-created']
 
-    def get(self, request, *args, **kwargs):
-        self.extra_context = {
-            "subjects": Subject.objects.all(),
-            "courses": Course.objects.all(),
-        }
-        return self.render_to_response(self.extra_context)
-
-class SubjectDetailView(TemplateView):
+class CourseDetailView(DetailView):
+    model=Course
     template_name='courses/course_detail.html'
-
-    def get(self, request, *args, **kwargs):
-        self.extra_context = {
-            "subjects": Subject.objects.all(),
-            "courses": Course.objects.all(),
-            "contents":Content.objects.all(),
-            "modules":Module.objects.all(),
-        }
-        return self.render_to_response(self.extra_context)
     
 class ModuleDetailView(DetailView):
     model=Module
