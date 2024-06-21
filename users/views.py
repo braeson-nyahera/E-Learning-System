@@ -9,16 +9,13 @@ def register(request):
     if request.method =='POST':
         form=UserRegisterForm(request.POST)
         if form.is_valid():
+            form.save()
             username=form.cleaned_data.get('username')
-            messages.success(request,f'Account created for {username}!')
-            return redirect('home')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('login')
     else:
         form=UserRegisterForm()
-    
-    context={
-        'form':form
-    }
-    return render(request, 'users/register.html',context)
+    return render(request, 'users/register.html', {'form':form})
 
 @login_required
 def profile(request):
