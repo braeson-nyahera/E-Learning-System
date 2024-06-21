@@ -6,9 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="{% static 'home/assets/tusome-favicon-color.png' %}">    
-    <title>Document</title>
+    <title>Tusome</title>
 </head>
 <body>
+<nav
+    class="flex w-full flex-wrap items-center justify-between bg-orange-400 py-2 shadow-dark-mild dark:bg-orange-400 lg:py-0.5"
+    data-twe-navbar-ref>
+    <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <div>
+        <a class="m-0 flex items-center lg:mb-0 lg:mt-0">
+        <img
+            class="me-2"
+            src="{% static 'home\assets\tusome_logo.png' %}"
+            style="height: 70px; width: fit-content;"
+            alt="TE Logo"
+            loading="lazy" />
+        </a>
+    </div>
+    </div>
+</nav>
     {% block content %}
 
     {% endblock %}

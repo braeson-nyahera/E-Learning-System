@@ -10,7 +10,7 @@
         <section class="bg-orange-300 p-2 m-2 rounded h-50">
             {{ course.title }}
             <br>
-            <p class="text-blue-800 font-medium">Countinue learning?</p>
+            <a href="{% url 'course_detail' course.id %}" class="text-blue-800 font-medium">Countinue learning?</a>
         </section>
     {% endfor %}
 </fieldset>

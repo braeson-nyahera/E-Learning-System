@@ -7,7 +7,7 @@
       <div
         class="flex h-full flex-wrap items-center justify-center lg:justify-between">
         <div
-          class=" mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+          class=" mb-6 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
           <img
             src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
             class="w-full"
@@ -19,11 +19,11 @@
           <form method="POST">
             {% csrf_token %}
             <!--Sign in section-->
-            <div class=" bg-orange-400 mb-6 p-3" data-twe-input-wrapper-init>
+            <div class=" bg-orange-400 mb-6 px-3 py-1" data-twe-input-wrapper-init>
               {{ form|crispy }}
             </div>
    
-            <div class="p-2 flex items-center justify-between">
+            <div class=" flex items-center justify-between">
               <!-- Remember me checkbox -->
               <div class="mb-[0.125rem] block min-h-[1.5rem] ps-[1.5rem]">
                 <input
