@@ -1,0 +1,53 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="search-section ss-other-page px-2">
+    <div class="container">
+    <div class="search-warp bg-orange-300 p-1">
+        <div class="row m-2">
+        <div class="col-lg-10 offset-lg-1 m-1">
+            <!-- search form -->
+            <form method="post" action="{% url 'search' %}" class="intro-newslatter"> {% csrf_token %}
+            <input class="rounded h-10 p-2" name="search" type="text" placeholder="Search here">
+            <button type="submit" class="p-2 mx-4 bg-blue-500 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>                      
+              </button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+<div class="container">
+    {% if results|length == 1 %}
+    <h1 class="font-medium px-3 text-blue-600">{{ results|length }} result found:</h1>
+    {% else %}
+    <h1 class="font-medium px-3 text-blue-600">{{ results|length }} results found:</h1>
+    {% endif %}
+    <div class="row course-items-area">
+        <!-- course -->
+        {% if results %}
+        {% for course in results %}
+        <section class=" bg-orange-300 p-4 m-2 rounded h-fit">
+            <a class="font-bold hover:text-blue-600 px-1 rounded" href="{% url 'course_detail' course.id %}"> {{ course.title }}</a>
+             <small class="font-medium"><p>Taught by: <i>{{ course.owner }}</i></p></small>
+             <p>{{ course.overview }}</p>
+         </section>
+        {% endfor %}
+        
+        {% else %}
+        <div class="text-center">
+            <h4>No course found.</h4>
+        </div>
+        {% endif %}
+        <!-- course -->
+      </div>
+</div>
+
+
+
+{% endblock %}

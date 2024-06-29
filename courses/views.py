@@ -16,3 +16,12 @@ class CourseDetailView(DetailView):
 class ModuleDetailView(DetailView):
     model=Module
     template_name='courses/module_detail.html'
+
+def SearchView(request):
+    if request.method == 'POST':
+        search_name = request.POST.get('search')
+        results = Course.objects.filter(title__contains=search_name)
+        context = {
+            'results':results
+        }
+        return render(request,'courses/search_result.html', context)
