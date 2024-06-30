@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="bg-orange-300 p-4 m-2 rounded h-fit">
+        <form action="{% url 'add_course' %}" method="POST">
+            {% csrf_token %}
+            {{ subject_form.as_p }}
+            {{ course_form.as_p }}
+            {{ content_form.as_p }}
+            {{ module_form.as_p }}
+            {{ itembase_form.as_p }}
+            <button type="submit">Add Course</button>
+        </form>    
+    </section>
+{% endblock content %}
