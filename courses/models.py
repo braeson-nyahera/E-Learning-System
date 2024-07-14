@@ -3,11 +3,12 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
+from PIL import Image
 
 # Create your models here.
 class Subject(models.Model):
     title=models.CharField(max_length=200)
-    slug=models.SlugField(max_length=200, unique=True)
+    slug=models.SlugField(max_length=200, unique=False)
 
     class Meta:
         ordering=['title']
@@ -19,15 +20,26 @@ class Course(models.Model):
     owner=models.ForeignKey(User, related_name='courses_created',on_delete=models.CASCADE)
     subject=models.ForeignKey(Subject, related_name='courses', on_delete=models.CASCADE)
     title=models.CharField(max_length=200)
-    slug=models.SlugField(max_length=200, unique=True)
+    slug=models.SlugField(max_length=200, unique=False)
     overview=models.TextField()
+    image=models.ImageField(default='course_default.jpg', upload_to='course_images')
     created=models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering=['-created']
+    # class Meta:
+    #     ordering=['-created']
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        super(Course, self).save(*args, **kwargs)
+
+        img=Image.open(self.image.path)
+
+        if img.height>300 or img.width>300:
+            output_size=(200,200)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
 class Module(models.Model):
     course=models.ForeignKey(Course, related_name='modules',on_delete=models.CASCADE)

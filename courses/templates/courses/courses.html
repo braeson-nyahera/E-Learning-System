@@ -1,6 +1,6 @@
 {% extends "home/base.html" %}
 {% block content %}
-    <p class="grid ">Courses offered</p>
+    <p class="grid ">Courses offered ({{ courses | length}})</p>
     <!-- search section -->
     <section class="search-section ss-other-page px-2">
         <div class="container">
@@ -22,11 +22,17 @@
         </div>
     </section>
     <!-- search section end -->
-    {% for course in courses %}
-        <section class=" bg-orange-300 p-4 m-2 rounded h-fit">
-           <a class="font-bold hover:text-blue-600 px-1 rounded" href="{% url 'course_detail' course.id %}"> {{ course.title }}</a>
-            <small class="font-medium"><p>Taught by: <i>{{ course.owner }}</i></p></small>
-            <p>{{ course.overview }}</p>
-        </section>
-    {% endfor %}
+    <section class="w-full">
+        {% for course in courses %}
+            <div class="bg-orange-300 p-1 m-2 rounded h-25 w-64">
+                <img class="rounded" src="{{course.image.url}}">
+                <div class="p-2">
+                    <a class="font-bold hover:text-blue-600 rounded" href="{% url 'course_detail' course.id %}"> {{ course.title }}</a>
+                    <small class="font-medium"><p>Taught by: <i>{{ course.owner }}</i></p></small>
+                    <p>{{ course.overview }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    
 {% endblock content %}
